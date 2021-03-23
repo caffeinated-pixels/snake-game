@@ -3,15 +3,19 @@
 // TODO: add local storage for hiscore
 // TODO: difficulty levels?
 // TODO: tweak socring system
+// TODO: don't stop game if you press opposite direction to snakes current heading
 
+// for setting the game up
 const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const scoreDisplay = document.getElementById('score')
 const squares = []
-let currentSnake = [2, 1, 0]
-let direction = 1
 const width = 20
 const height = 15
+
+// game state variables
+let currentSnake = [2, 1, 0]
+let direction = 1
 let appleIndex = 0
 let score = 0
 let intervalTime = 1000
@@ -19,9 +23,8 @@ const speed = 0.9
 let timerId = 0
 
 function createGrid () {
-  // create 100 of these elements with a for loop
+  // create 300 square for our 20x15 grid
   for (let i = 0; i < width * height; i++) {
-    // create element
     const square = document.createElement('div')
     // add styling to the element
     square.classList.add('square')
@@ -31,9 +34,8 @@ function createGrid () {
     squares.push(square)
   }
 }
-createGrid()
-console.log(squares.length)
 
+createGrid()
 currentSnake.forEach(index => squares[index].classList.add('snake'))
 
 function startGame () {
