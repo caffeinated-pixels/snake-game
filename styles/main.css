@@ -55,3 +55,8 @@ body {
 .apple {
   background-color: blue;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
