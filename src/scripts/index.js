@@ -26,17 +26,19 @@ function createGrid () {
   // create 300 square for our 20x15 grid
   for (let i = 0; i < width * height; i++) {
     const square = document.createElement('div')
-    // add styling to the element
     square.classList.add('square')
-    // put the element into our grid
     grid.appendChild(square)
-    // push it into a new squares array
     squares.push(square)
   }
 }
 
 createGrid()
-currentSnake.forEach(index => squares[index].classList.add('snake'))
+
+function createSnake () {
+  currentSnake.forEach(index => squares[index].classList.add('snake'))
+}
+
+createSnake()
 
 function startGame () {
   // remove the snake
@@ -46,13 +48,12 @@ function startGame () {
   clearInterval(timerId)
   currentSnake = [2, 1, 0]
   score = 0
-  // re add new score to browser
   scoreDisplay.textContent = score
   direction = 1
   intervalTime = 1000
   generateApple()
   // readd the class of snake to our new currentSnake
-  currentSnake.forEach(index => squares[index].classList.add('snake'))
+  createSnake()
   timerId = setInterval(move, intervalTime)
 }
 
