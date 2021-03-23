@@ -1,3 +1,9 @@
+// TODO: add pause function
+// TODO: add hiscore
+// TODO: add local storage for hiscore
+// TODO: difficulty levels?
+// TODO: tweak socring system
+
 const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const scoreDisplay = document.getElementById('score')
@@ -53,7 +59,9 @@ function move () {
     (currentSnake[0] % width === 0 && direction === -1) || // if snake has hit left wall
     (currentSnake[0] - width < 0 && direction === -width) || // if snake has hit top
     squares[currentSnake[0] + direction].classList.contains('snake')
-  ) { return clearInterval(timerId) }
+  ) {
+    return clearInterval(timerId)
+  }
 
   // remove last element from our currentSnake array
   const tail = currentSnake.pop()
