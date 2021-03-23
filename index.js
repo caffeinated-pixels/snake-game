@@ -10,7 +10,8 @@ const scoreDisplay = document.getElementById('score')
 const squares = []
 let currentSnake = [2, 1, 0]
 let direction = 1
-const width = 10
+const width = 20
+const height = 10
 let appleIndex = 0
 let score = 0
 let intervalTime = 1000
@@ -19,7 +20,7 @@ let timerId = 0
 
 function createGrid () {
   // create 100 of these elements with a for loop
-  for (let i = 0; i < width * width; i++) {
+  for (let i = 0; i < width * height; i++) {
     // create element
     const square = document.createElement('div')
     // add styling to the element
@@ -31,6 +32,7 @@ function createGrid () {
   }
 }
 createGrid()
+console.log(squares.length)
 
 currentSnake.forEach(index => squares[index].classList.add('snake'))
 
