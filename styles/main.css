@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  height: 200px;
+  border: solid 2px black;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+}
+
+.snake {
+  background-color: green;
+}
+
+.apple {
+  background-color: blue;
+}
