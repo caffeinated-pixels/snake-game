@@ -12,13 +12,20 @@
     <link rel="stylesheet" href="styles/main.min.css" />
   </head>
   <body>
-    <header>
-      <h1>Snake 🐍</h1>
+    <header class="header">
+      <h1>Snake <span class="snake-emoji">🐍</span></h1>
     </header>
 
-    <button id="start">Start/Restart</button>
-    <h2>Score <span id="score"></span></h2>
-    <div class="grid"></div>
+    <main class="game-container">
+      <div class="scoreboard">
+        <p class="score">Score: <span id="score">0</span></p>
+        <p class="hiscore">Hi: <span id="hiscore">0</span></p>
+      </div>
+
+      <div class="grid"></div>
+      <button id="start">Start/Restart</button>
+    </main>
+
     <script src="index.js"></script>
   </body>
 </html>

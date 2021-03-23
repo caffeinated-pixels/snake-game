@@ -15,12 +15,31 @@ body {
   align-items: center;
 }
 
+.header {
+  margin-top: 5px;
+}
+
+.snake-emoji {
+  vertical-align: bottom;
+}
+
+.game-container {
+  margin-top: 15px;
+}
+
+.scoreboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
   height: 150px;
   border: solid 2px black;
+  margin: 10px;
 }
 
 .square {
