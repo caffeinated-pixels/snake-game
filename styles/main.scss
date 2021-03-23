@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  // border causes problems with the grid because you need to take into account the border width!!!
+  // box-sizing: border-box;
 }
 
 html {
@@ -15,19 +16,19 @@ body {
   align-items: center;
 }
 
-
-
 .grid {
   display: flex;
   flex-wrap: wrap;
   width: 200px;
   height: 200px;
   border: solid 2px black;
+
 }
 
 .square {
   width: 20px;
   height: 20px;
+  background-color: pink;
 }
 
 .snake {

@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -26,6 +25,7 @@ body {
 .square {
   width: 20px;
   height: 20px;
+  background-color: pink;
 }
 
 .snake {
