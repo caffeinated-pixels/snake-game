@@ -21,13 +21,15 @@ const pauseIcon = '<i class="fas fa-pause"></i>'
 // const appleIcon = '<i class="fas fa-apple-alt"></i>'
 
 // game state variables
+const speedMultiplier = 0.9
+const initialIntervalTime = 200
+
 let currentSnake = [2, 1, 0]
 let direction = 1
 let appleIndex = 0
 let score = 0
 let hiscore = 0
-let intervalTime = 500
-const speedMultiplier = 0.9
+let intervalTime = initialIntervalTime
 let timerId = 0
 let isPaused = true
 let isGameOver = true
@@ -152,7 +154,7 @@ function resetGame (cameFromGameover) {
   score = 0
   scoreDisplay.textContent = score
   direction = 1
-  intervalTime = 500
+  intervalTime = initialIntervalTime
   isPaused = true
 
   if (!cameFromGameover) {
