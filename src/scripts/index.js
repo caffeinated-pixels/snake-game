@@ -184,7 +184,9 @@ function setHiscore () {
   }
 }
 
+// TODO: merge handleKeyInput & handleDPad?
 function handleKeyInput (e) {
+  if (isPaused) return
   let newDirection
 
   if (e.keyCode === 39) {
@@ -205,6 +207,7 @@ function handleKeyInput (e) {
 }
 
 function handleDPad (event) {
+  if (isPaused) return
   let newDirection
   const input = event.currentTarget.id
 
