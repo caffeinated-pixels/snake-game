@@ -17,7 +17,7 @@ const width = 20
 const height = 15
 const playIcon = '<i class="fas fa-play"></i>'
 const pauseIcon = '<i class="fas fa-pause"></i>'
-const appleIcon = '<i class="fas fa-apple-alt"></i>'
+// const appleIcon = '<i class="fas fa-apple-alt"></i>'
 
 // game state variables
 let currentSnake = [2, 1, 0]
@@ -68,7 +68,7 @@ function startGame () {
   if (isGameOver) {
     generateApple()
     createSnake()
-    timerId = setInterval(move, intervalTime)
+    timerId = setInterval(moveSnake, intervalTime)
     isGameOver = false
     isPaused = false
     startButton.innerHTML = pauseIcon
@@ -81,14 +81,14 @@ function startGame () {
     startButton.innerHTML = playIcon
     pauseScreen.style.display = 'block'
   } else {
-    timerId = setInterval(move, intervalTime)
+    timerId = setInterval(moveSnake, intervalTime)
     isPaused = false
     startButton.innerHTML = pauseIcon
     pauseScreen.style.display = 'none'
   }
 }
 
-function move () {
+function moveSnake () {
   if (
     (currentSnake[0] + width >= width * height && direction === width) || // if snake has hit bottom
     (currentSnake[0] % width === width - 1 && direction === 1) || // if snake has hit right wall
@@ -115,25 +115,21 @@ function move () {
 
 function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
-    // remove the class of apple
     squares[currentSnake[0]].classList.remove('apple')
-    // grow our snake by adding class of snake to it
+
+    // grow the snake
     squares[tail].classList.add('snake')
-    // grow our snake array
     currentSnake.push(tail)
 
-    // generate new apple
     generateApple()
-    // add one to the score
+
     score++
-    // display our score
     scoreDisplay.textContent = score
-    // speed up our snake
+
+    // speed up the snake
     clearInterval(timerId)
-    // console.log(intervalTime)
     intervalTime = intervalTime * speedMultiplier
-    // console.log(intervalTime)
-    timerId = setInterval(move, intervalTime)
+    timerId = setInterval(moveSnake, intervalTime)
   }
 }
 
