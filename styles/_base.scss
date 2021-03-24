@@ -1,0 +1,33 @@
+// main: ./main.scss
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.mercBoy-container {
+  width: 340px;
+  height: 600px;
+  border-radius: 25px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px black;
+  background-color: lightgray;
+  position: relative;
+}
+
+.game-container {
+  width: 320px;
+  margin: 15px auto;
+}

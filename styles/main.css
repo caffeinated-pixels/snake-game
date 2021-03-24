@@ -25,6 +25,11 @@ body {
   position: relative;
 }
 
+.game-container {
+  width: 320px;
+  margin: 15px auto;
+}
+
 .header {
   margin-top: 20px;
   text-align: center;
@@ -38,11 +43,6 @@ h1 {
 
 .italic {
   font-style: italic;
-}
-
-.game-container {
-  width: 320px;
-  margin: 15px auto;
 }
 
 .screen-container {
