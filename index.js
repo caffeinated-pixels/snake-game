@@ -85,7 +85,7 @@ function startGame () {
 }
 
 function moveSnake () {
-  if (hasSnakeCollided()) {
+  if (hasSnakeHitWall() || hasSnakeHitSelf()) {
     return gameover()
   }
 
@@ -98,14 +98,24 @@ function moveSnake () {
   squares[currentSnake[0]].classList.add('snake')
 }
 
-function hasSnakeCollided () {
+function hasSnakeHitWall () {
+  const hasSnakeHitTop = currentSnake[0] - width < 0 && direction === -width
+
+  const hasSnakeHitBottom =
+    currentSnake[0] + width >= width * height && direction === width
+
+  const hasSnakeHitLeft = currentSnake[0] % width === 0 && direction === -1
+
+  const hasSnakeHitRight =
+    currentSnake[0] % width === width - 1 && direction === 1
+
   return (
-    (currentSnake[0] + width >= width * height && direction === width) || // if snake has hit bottom
-    (currentSnake[0] % width === width - 1 && direction === 1) || // if snake has hit right wall
-    (currentSnake[0] % width === 0 && direction === -1) || // if snake has hit left wall
-    (currentSnake[0] - width < 0 && direction === -width) || // if snake has hit top
-    squares[currentSnake[0] + direction].classList.contains('snake')
+    hasSnakeHitBottom || hasSnakeHitRight || hasSnakeHitLeft || hasSnakeHitTop
   )
+}
+
+function hasSnakeHitSelf () {
+  return squares[currentSnake[0] + direction].classList.contains('snake')
 }
 
 function checkForApple (tail) {
@@ -134,7 +144,6 @@ function generateApple () {
     appleIndex = Math.floor(Math.random() * squares.length)
   } while (squares[appleIndex].classList.contains('snake'))
   squares[appleIndex].classList.add('apple')
-  // squares[appleIndex].innerHTML = appleIcon
 }
 
 function resetGame (cameFromGameover) {
@@ -176,7 +185,6 @@ function setHiscore () {
   }
 }
 
-// TODO: merge handleKeyInput & handleDPad?
 function handleKeyInput (event) {
   if (isPaused) return
   const input =
