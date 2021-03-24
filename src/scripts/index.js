@@ -34,10 +34,10 @@ let isGameOver = true
 document.addEventListener('keydown', handleKeyInput)
 startButton.addEventListener('click', startGame)
 resetButton.addEventListener('click', () => resetGame(false))
-document.getElementById('up').addEventListener('click', handleKeyInput)
-document.getElementById('left').addEventListener('click', handleKeyInput)
-document.getElementById('right').addEventListener('click', handleKeyInput)
-document.getElementById('down').addEventListener('click', handleKeyInput)
+
+document
+  .querySelectorAll('.d-btn')
+  .forEach(item => item.addEventListener('click', handleKeyInput))
 
 function createGrid () {
   // create 300 square for our 20x15 grid
