@@ -12,7 +12,7 @@ const startScreen = document.getElementById('start-screen')
 const pauseScreen = document.getElementById('pause-screen')
 const gameoverScreen = document.getElementById('gameover-screen')
 const gameoverScore = document.getElementById('gameover-score')
-const gulp = document.getElementById('gulp')
+
 const squares = []
 const width = 20
 const height = 15
@@ -119,7 +119,8 @@ function moveSnake () {
 function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
     squares[currentSnake[0]].classList.remove('apple')
-    gulp.play()
+    document.getElementById('gulp').play()
+
     // grow the snake
     squares[tail].classList.add('snake')
     currentSnake.push(tail)
@@ -166,6 +167,7 @@ function resetGame (cameFromGameover) {
 }
 
 function gameover () {
+  document.getElementById('splat').play()
   gameoverScore.textContent = score
   gameoverScreen.style.display = 'block'
   isGameOver = true
