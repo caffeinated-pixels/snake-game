@@ -17,6 +17,7 @@ const width = 20
 const height = 15
 const playIcon = '<i class="fas fa-play"></i>'
 const pauseIcon = '<i class="fas fa-pause"></i>'
+const appleIcon = '<i class="fas fa-apple-alt"></i>'
 
 // game state variables
 let currentSnake = [2, 1, 0]
@@ -107,15 +108,20 @@ function move () {
   // add styling so we can see it
 
   // deal with snake head gets apple
+  checkForApple(tail)
+
+  squares[currentSnake[0]].classList.add('snake')
+}
+
+function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
     // remove the class of apple
     squares[currentSnake[0]].classList.remove('apple')
     // grow our snake by adding class of snake to it
     squares[tail].classList.add('snake')
-    // console.log(tail)
     // grow our snake array
     currentSnake.push(tail)
-    // console.log(currentSnake)
+
     // generate new apple
     generateApple()
     // add one to the score
@@ -129,8 +135,6 @@ function move () {
     // console.log(intervalTime)
     timerId = setInterval(move, intervalTime)
   }
-
-  squares[currentSnake[0]].classList.add('snake')
 }
 
 function generateApple () {
@@ -138,6 +142,7 @@ function generateApple () {
     appleIndex = Math.floor(Math.random() * squares.length)
   } while (squares[appleIndex].classList.contains('snake'))
   squares[appleIndex].classList.add('apple')
+  // squares[appleIndex].innerHTML = appleIcon
 }
 
 function resetGame (cameFromGameover) {
