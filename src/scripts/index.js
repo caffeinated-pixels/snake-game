@@ -1,4 +1,3 @@
-// TODO: add hiscore
 // TODO: add local storage for hiscore
 // TODO: difficulty levels?
 // TODO: tweak socring system
@@ -26,7 +25,7 @@ let appleIndex = 0
 let score = 0
 let hiscore = 0
 let intervalTime = 500
-const speed = 0.9
+const speedMultiplier = 0.9
 let timerId = 0
 let isPaused = true
 let isGameOver = true
@@ -118,7 +117,7 @@ function move () {
     // speed up our snake
     clearInterval(timerId)
     // console.log(intervalTime)
-    intervalTime = intervalTime * speed
+    intervalTime = intervalTime * speedMultiplier
     // console.log(intervalTime)
     timerId = setInterval(move, intervalTime)
   }
