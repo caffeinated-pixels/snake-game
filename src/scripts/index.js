@@ -28,7 +28,7 @@ let isPaused = true
 let isGameOver = true
 
 // event listeners
-document.addEventListener('keyup', control)
+document.addEventListener('keyup', handleKeyInput)
 startButton.addEventListener('click', startGame)
 resetButton.addEventListener('click', resetGame)
 
@@ -139,7 +139,7 @@ function resetGame () {
   startButton.innerHTML = playIcon
 }
 
-function control (e) {
+function handleKeyInput (e) {
   if (e.keyCode === 39) {
     // console.log('right pressed')
     direction = 1
