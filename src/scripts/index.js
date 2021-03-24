@@ -180,24 +180,18 @@ function setHiscore () {
 
 // TODO: merge handleKeyInput & handleDPad?
 function handleKeyInput (event) {
-  console.log(event.type)
+  if (isPaused) return
   const input =
     event.type === 'keydown' ? event.keyCode : event.currentTarget.id
-
-  if (isPaused) return
   let newDirection
 
   if (input === 39 || input === 'right') {
-    // console.log('right pressed')
     newDirection = 1
   } else if (input === 38 || input === 'up') {
-    // console.log('up pressed')
     newDirection = -width
   } else if (input === 37 || input === 'left') {
-    // console.log('left pressed')
     newDirection = -1
   } else if (input === 40 || input === 'down') {
-    // console.log('down pressed')
     newDirection = +width
   }
 
