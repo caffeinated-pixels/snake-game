@@ -8,8 +8,11 @@ const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const resetButton = document.getElementById('reset')
 const scoreDisplay = document.getElementById('score')
+const hiscoreDisplay = document.getElementById('hiscore')
 const startScreen = document.getElementById('start-screen')
 const pauseScreen = document.getElementById('pause-screen')
+const gameoverScreen = document.getElementById('gameover-screen')
+const gameoverScore = document.getElementById('gameover-score')
 const squares = []
 const width = 20
 const height = 15
@@ -21,7 +24,7 @@ let currentSnake = [2, 1, 0]
 let direction = 1
 let appleIndex = 0
 let score = 0
-// let hiscore = 0
+let hiscore = 0
 let intervalTime = 500
 const speed = 0.9
 let timerId = 0
@@ -31,7 +34,7 @@ let isGameOver = true
 // event listeners
 document.addEventListener('keyup', handleKeyInput)
 startButton.addEventListener('click', startGame)
-resetButton.addEventListener('click', resetGame)
+resetButton.addEventListener('click', () => resetGame(false))
 document.getElementById('up').addEventListener('click', handleDPad)
 document.getElementById('left').addEventListener('click', handleDPad)
 document.getElementById('right').addEventListener('click', handleDPad)
@@ -48,8 +51,6 @@ function createGrid () {
 }
 
 createGrid()
-// createSnake()
-// generateApple()
 
 function createSnake () {
   currentSnake.forEach(index => squares[index].classList.add('snake'))
@@ -64,6 +65,8 @@ function startGame () {
     isPaused = false
     startButton.innerHTML = pauseIcon
     startScreen.style.display = 'none'
+    gameoverScreen.style.display = 'none'
+    pauseScreen.style.display = 'none'
   } else if (!isPaused) {
     clearInterval(timerId)
     isPaused = true
@@ -85,7 +88,7 @@ function move () {
     (currentSnake[0] - width < 0 && direction === -width) || // if snake has hit top
     squares[currentSnake[0] + direction].classList.contains('snake')
   ) {
-    return clearInterval(timerId)
+    return gameover()
   }
 
   // remove last element from our currentSnake array
@@ -130,23 +133,40 @@ function generateApple () {
   squares[appleIndex].classList.add('apple')
 }
 
-function resetGame () {
-  // console.log('reset')
-  // remove the snake
-  currentSnake.forEach(index => squares[index].classList.remove('snake'))
-  // remove the apple
-  squares[appleIndex].classList.remove('apple')
+function resetGame (cameFromGameover) {
   clearInterval(timerId)
+  currentSnake.forEach(index => squares[index].classList.remove('snake'))
+  squares[appleIndex].classList.remove('apple')
+  startButton.innerHTML = playIcon
+
   currentSnake = [2, 1, 0]
   score = 0
   scoreDisplay.textContent = score
   direction = 1
-  intervalTime = 1000
+  intervalTime = 500
   isPaused = true
+
+  if (!cameFromGameover) {
+    isGameOver = true
+    startScreen.style.display = 'block'
+    pauseScreen.style.display = 'none'
+    gameoverScreen.style.display = 'none'
+  }
+}
+
+function gameover () {
+  gameoverScore.textContent = score
+  gameoverScreen.style.display = 'block'
   isGameOver = true
-  startButton.innerHTML = playIcon
-  startScreen.style.display = 'block'
-  pauseScreen.style.display = 'none'
+  setHiscore()
+  resetGame(true)
+}
+
+function setHiscore () {
+  if (score > hiscore) {
+    hiscore = score
+    hiscoreDisplay.textContent = hiscore
+  }
 }
 
 function handleKeyInput (e) {
