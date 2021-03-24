@@ -79,8 +79,8 @@ body {
 }
 
 .button {
-  // width: 30px;
-  // height: 30px;
+  width: 40px;
+  height: 40px;
   border: unset;
   border-radius: 5%;
 
@@ -89,7 +89,7 @@ body {
   background-color: #7bb2f6;
   text-align: center;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0;
   font-size: 0.8rem;
   font-family: inherit;
   color: white;
@@ -101,7 +101,7 @@ body {
 }
 
 .d-pad-container {
-  background-color: lightyellow;
+  // background-color: lightyellow;
   width: 120px;
 }
 
