@@ -49,6 +49,15 @@ function createGrid () {
   }
 }
 
+function getHiscoreFromStorage () {
+  const storedHiscore = localStorage.getItem('snakeHiscore')
+  if (typeof storedHiscore !== 'string') return // should be a string
+  const parsedHiscore = JSON.parse(storedHiscore) // convert back to JSON
+  hiscore = parsedHiscore.hiscore
+  hiscoreDisplay.textContent = hiscore
+}
+
+getHiscoreFromStorage()
 createGrid()
 
 function createSnake () {
@@ -165,6 +174,7 @@ function setHiscore () {
   if (score > hiscore) {
     hiscore = score
     hiscoreDisplay.textContent = hiscore
+    localStorage.setItem('snakeHiscore', JSON.stringify({ hiscore: hiscore }))
   }
 }
 
