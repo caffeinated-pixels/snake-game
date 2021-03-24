@@ -1,4 +1,3 @@
-// TODO: add pause function
 // TODO: add hiscore
 // TODO: add local storage for hiscore
 // TODO: difficulty levels?
@@ -19,6 +18,7 @@ let currentSnake = [2, 1, 0]
 let direction = 1
 let appleIndex = 0
 let score = 0
+// let hiscore = 0
 let intervalTime = 500
 const speed = 0.9
 let timerId = 0
@@ -55,12 +55,15 @@ function startGame () {
     timerId = setInterval(move, intervalTime)
     isGameOver = false
     isPaused = false
+    startButton.textContent = 'Pause'
   } else if (!isPaused) {
     clearInterval(timerId)
     isPaused = true
+    startButton.textContent = 'Start'
   } else {
     timerId = setInterval(move, intervalTime)
     isPaused = false
+    startButton.textContent = 'Pause'
   }
 }
 
@@ -131,6 +134,7 @@ function resetGame () {
   intervalTime = 1000
   isPaused = true
   isGameOver = true
+  startButton.textContent = 'Start'
 }
 
 function control (e) {
