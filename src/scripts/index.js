@@ -1,5 +1,4 @@
 // add sounds?
-// disable controls while paused
 // TODO: difficulty levels?
 // TODO: tweak socring system
 
@@ -53,13 +52,8 @@ function createGrid () {
 function getHiscoreFromStorage () {
   if (localStorage.snakeHiscore) {
     hiscore = localStorage.snakeHiscore
+    hiscoreDisplay.textContent = hiscore
   }
-
-  // const storedHiscore = localStorage.getItem('snakeHiscore')
-  // if (typeof storedHiscore !== 'string') return // should be a string
-  // const parsedHiscore = JSON.parse(storedHiscore) // convert back to JSON
-  // hiscore = parsedHiscore.hiscore
-  hiscoreDisplay.textContent = hiscore
 }
 
 getHiscoreFromStorage()
