@@ -12,6 +12,8 @@ const scoreDisplay = document.getElementById('score')
 const squares = []
 const width = 20
 const height = 15
+const playIcon = '<i class="fas fa-play"></i>'
+const pauseIcon = '<i class="fas fa-pause"></i>'
 
 // game state variables
 let currentSnake = [2, 1, 0]
@@ -55,15 +57,15 @@ function startGame () {
     timerId = setInterval(move, intervalTime)
     isGameOver = false
     isPaused = false
-    startButton.textContent = 'Pause'
+    startButton.innerHTML = pauseIcon
   } else if (!isPaused) {
     clearInterval(timerId)
     isPaused = true
-    startButton.textContent = 'Start'
+    startButton.innerHTML = playIcon
   } else {
     timerId = setInterval(move, intervalTime)
     isPaused = false
-    startButton.textContent = 'Pause'
+    startButton.innerHTML = pauseIcon
   }
 }
 
@@ -134,7 +136,7 @@ function resetGame () {
   intervalTime = 1000
   isPaused = true
   isGameOver = true
-  startButton.textContent = 'Start'
+  startButton.innerHTML = playIcon
 }
 
 function control (e) {
