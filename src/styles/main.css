@@ -80,3 +80,24 @@ body {
   background-color: gray;
   outline-style: none;
 }
+
+.d-pad-container {
+  background-color: lightyellow;
+  width: 120px;
+}
+
+.btn-row1, .btn-row3 {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-row2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
