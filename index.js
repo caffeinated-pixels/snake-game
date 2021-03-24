@@ -1,9 +1,4 @@
-// add sounds?
-// TODO: difficulty levels?
-// TODO: tweak socring system
-
 // for setting the game up
-const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const resetButton = document.getElementById('reset')
 const scoreDisplay = document.getElementById('score')
@@ -18,12 +13,10 @@ const width = 20
 const height = 15
 const playIcon = '<i class="fas fa-play"></i>'
 const pauseIcon = '<i class="fas fa-pause"></i>'
-// const appleIcon = '<i class="fas fa-apple-alt"></i>'
 
 // game state variables
 const speedMultiplier = 0.9
 const initialIntervalTime = 200
-
 let currentSnake = [2, 1, 0]
 let direction = 1
 let appleIndex = 0
@@ -48,7 +41,7 @@ function createGrid () {
   for (let i = 0; i < width * height; i++) {
     const square = document.createElement('div')
     square.classList.add('square')
-    grid.appendChild(square)
+    document.querySelector('.grid').appendChild(square)
     squares.push(square)
   }
 }
