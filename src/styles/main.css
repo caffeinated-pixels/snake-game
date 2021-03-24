@@ -16,7 +16,11 @@ body {
 }
 
 .header {
-  margin-top: 5px;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 1.3rem;
 }
 
 .snake-emoji {
@@ -27,10 +31,20 @@ body {
   margin-top: 15px;
 }
 
+.screen-container {
+  background-color: #AACC66;
+  width: 320px;
+  height: 280px;
+  padding: 5px;
+  border: 5px solid black;
+  border-radius: 5%;
+}
+
 .scoreboard {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 0.8rem;
 }
 
 .grid {
@@ -38,9 +52,9 @@ body {
   flex-wrap: wrap;
   width: 300px;
   height: 225px;
-  border: solid 2px black;
-  background-color: lightpink;
-  margin: 10px 0;
+  border: solid 1px black;
+  background-color: #AACC66;
+  margin: 10px auto;
 }
 
 .square {
@@ -60,6 +74,7 @@ body {
 .btn-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .button {
