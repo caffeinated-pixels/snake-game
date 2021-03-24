@@ -1,13 +1,16 @@
 // main: ./main.scss
 
 .screen-container {
-  background-color: #aacc66;
   width: 280px;
   height: 230px;
+
   padding: 5px;
+  margin: auto;
+
   border: 5px solid black;
   border-radius: 5%;
-  margin: auto;
+  background: #aacc66;
+  background: radial-gradient(circle, rgba(170,204,102,1) 70%, rgba(154,186,90,1) 100%);
 
   position: relative;
 }
@@ -25,14 +28,12 @@
   width: 240px;
   height: 180px;
   border: solid 1px black;
-  background-color: #aacc66;
   margin: 10px auto;
 }
 
 .square {
   width: 12px;
   height: 12px;
-  // background-color: yellow;
 }
 
 .snake {
@@ -47,7 +48,6 @@
     position: center;
     size: contain;
   }
-
 }
 
 .game-message {
