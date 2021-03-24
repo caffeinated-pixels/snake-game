@@ -96,7 +96,13 @@ h1 {
 }
 
 .apple {
-  background-color: blue;
+  background: {
+    image: url(../media/apple-alt-solid.svg);
+    repeat: no-repeat;
+    position: center;
+    size: contain;
+  }
+
 }
 
 .game-message {
