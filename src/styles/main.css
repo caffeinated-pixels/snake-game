@@ -10,13 +10,25 @@ html {
 body {
   font-family: 'Press Start 2P', cursive;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.mercBoy-container {
+  width: 340px;
+  height: 600px;
+  border-radius: 25px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px black;
+  background-color: lightgray;
 }
 
 .header {
-  margin-top: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Dela Gothic One';
+  color: #4d4787;
 }
 
 h1 {
@@ -24,16 +36,18 @@ h1 {
 }
 
 .game-container {
-  margin-top: 15px;
+  width: 320px;
+  margin: 15px auto;
 }
 
 .screen-container {
-  background-color: #AACC66;
-  width: 320px;
-  height: 280px;
+  background-color: #aacc66;
+  width: 280px;
+  height: 230px;
   padding: 5px;
   border: 5px solid black;
   border-radius: 5%;
+  margin: auto;
   position: relative;
 }
 
@@ -47,20 +61,20 @@ h1 {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  width: 300px;
-  height: 225px;
+  width: 240px;
+  height: 180px;
   border: solid 1px black;
-  background-color: #AACC66;
+  background-color: #aacc66;
   margin: 10px auto;
 }
 
 .square {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
 }
 
 .snake {
-  background-color: green;
+  background-color: black;
   border-radius: 35%;
 }
 
@@ -93,35 +107,49 @@ h1 {
 .btn-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  width: 90%;
+  margin: 25px auto;
 }
 
 .button {
   width: 40px;
   height: 40px;
   border: unset;
-  border-radius: 5%;
   cursor: pointer;
   box-shadow: 2px 2px 4px black;
-  background-color: #7bb2f6;
-  text-align: center;
   text-decoration: none;
   padding: 0;
   font-size: 1rem;
-  font-family: inherit;
   color: white;
 }
 
-.button:hover, .button:focus {
-  background-color: gray;
+.game-btn {
+  background-color: #ab3c63;
+  border-radius: 100%;
+}
+
+.d-btn {
+  border-radius: 5%;
+  background-color: #313130;
+}
+
+.button:hover,
+.button:focus {
+  border: 2px solid orange;
   outline-style: none;
+}
+
+.button:active {
+  background-color: gray;
+  transform: scale(0.9);
 }
 
 .d-pad-container {
   width: 120px;
 }
 
-.btn-row1, .btn-row3 {
+.btn-row1,
+.btn-row3 {
   display: flex;
   justify-content: center;
 }
