@@ -94,10 +94,10 @@ function move () {
     squares[currentSnake[0]].classList.remove('apple')
     // grow our snake by adding class of snake to it
     squares[tail].classList.add('snake')
-    console.log(tail)
+    // console.log(tail)
     // grow our snake array
     currentSnake.push(tail)
-    console.log(currentSnake)
+    // console.log(currentSnake)
     // generate new apple
     generateApple()
     // add one to the score
@@ -106,9 +106,9 @@ function move () {
     scoreDisplay.textContent = score
     // speed up our snake
     clearInterval(timerId)
-    console.log(intervalTime)
+    // console.log(intervalTime)
     intervalTime = intervalTime * speed
-    console.log(intervalTime)
+    // console.log(intervalTime)
     timerId = setInterval(move, intervalTime)
   }
 
@@ -123,7 +123,7 @@ function generateApple () {
 }
 
 function resetGame () {
-  console.log('reset')
+  // console.log('reset')
   // remove the snake
   currentSnake.forEach(index => squares[index].classList.remove('snake'))
   // remove the apple
@@ -140,17 +140,28 @@ function resetGame () {
 }
 
 function handleKeyInput (e) {
+  let newDirection
+
   if (e.keyCode === 39) {
     // console.log('right pressed')
-    direction = 1
+    newDirection = 1
   } else if (e.keyCode === 38) {
     // console.log('up pressed')
-    direction = -width
+    newDirection = -width
   } else if (e.keyCode === 37) {
     // console.log('left pressed')
-    direction = -1
+    newDirection = -1
   } else if (e.keyCode === 40) {
     // console.log('down pressed')
-    direction = +width
+    newDirection = +width
+  }
+
+  changeDirection(newDirection)
+}
+
+function changeDirection (newDirection) {
+  // so that snake head can only move forward
+  if (direction !== -newDirection) {
+    direction = newDirection
   }
 }
