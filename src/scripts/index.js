@@ -1,4 +1,3 @@
-// TODO: add local storage for hiscore
 // TODO: difficulty levels?
 // TODO: tweak socring system
 
@@ -50,10 +49,14 @@ function createGrid () {
 }
 
 function getHiscoreFromStorage () {
-  const storedHiscore = localStorage.getItem('snakeHiscore')
-  if (typeof storedHiscore !== 'string') return // should be a string
-  const parsedHiscore = JSON.parse(storedHiscore) // convert back to JSON
-  hiscore = parsedHiscore.hiscore
+  if (localStorage.snakeHiscore) {
+    hiscore = localStorage.snakeHiscore
+  }
+
+  // const storedHiscore = localStorage.getItem('snakeHiscore')
+  // if (typeof storedHiscore !== 'string') return // should be a string
+  // const parsedHiscore = JSON.parse(storedHiscore) // convert back to JSON
+  // hiscore = parsedHiscore.hiscore
   hiscoreDisplay.textContent = hiscore
 }
 
@@ -175,6 +178,7 @@ function setHiscore () {
     hiscore = score
     hiscoreDisplay.textContent = hiscore
     localStorage.setItem('snakeHiscore', JSON.stringify({ hiscore: hiscore }))
+    localStorage.setItem('snakeHiscore', hiscore)
   }
 }
 
