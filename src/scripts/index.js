@@ -8,6 +8,8 @@ const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const resetButton = document.getElementById('reset')
 const scoreDisplay = document.getElementById('score')
+const startScreen = document.getElementById('start-screen')
+const pauseScreen = document.getElementById('pause-screen')
 const squares = []
 const width = 20
 const height = 15
@@ -61,14 +63,17 @@ function startGame () {
     isGameOver = false
     isPaused = false
     startButton.innerHTML = pauseIcon
+    startScreen.style.display = 'none'
   } else if (!isPaused) {
     clearInterval(timerId)
     isPaused = true
     startButton.innerHTML = playIcon
+    pauseScreen.style.display = 'block'
   } else {
     timerId = setInterval(move, intervalTime)
     isPaused = false
     startButton.innerHTML = pauseIcon
+    pauseScreen.style.display = 'none'
   }
 }
 
@@ -140,6 +145,8 @@ function resetGame () {
   isPaused = true
   isGameOver = true
   startButton.innerHTML = playIcon
+  startScreen.style.display = 'block'
+  pauseScreen.style.display = 'none'
 }
 
 function handleKeyInput (e) {
