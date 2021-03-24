@@ -2,7 +2,6 @@
 // TODO: add local storage for hiscore
 // TODO: difficulty levels?
 // TODO: tweak socring system
-// TODO: don't stop game if you press opposite direction to snakes current heading
 
 // for setting the game up
 const grid = document.querySelector('.grid')
@@ -75,7 +74,7 @@ function startGame () {
 
 function move () {
   if (
-    (currentSnake[0] + width >= width * width && direction === width) || // if snake has hit bottom
+    (currentSnake[0] + width >= width * height && direction === width) || // if snake has hit bottom
     (currentSnake[0] % width === width - 1 && direction === 1) || // if snake has hit right wall
     (currentSnake[0] % width === 0 && direction === -1) || // if snake has hit left wall
     (currentSnake[0] - width < 0 && direction === -width) || // if snake has hit top
