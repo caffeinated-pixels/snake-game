@@ -35,6 +35,10 @@ h1 {
   font-size: 1.3rem;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .game-container {
   width: 320px;
   margin: 15px auto;
@@ -107,7 +111,7 @@ h1 {
 .btn-container {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 88%;
   margin: 25px auto;
 }
 
