@@ -46,13 +46,14 @@ h1 {
 }
 
 .screen-container {
-  background-color: #aacc66;
   width: 280px;
   height: 230px;
   padding: 5px;
+  margin: auto;
   border: 5px solid black;
   border-radius: 5%;
-  margin: auto;
+  background: #aacc66;
+  background: radial-gradient(circle, #aacc66 70%, #9aba5a 100%);
   position: relative;
 }
 
@@ -69,7 +70,6 @@ h1 {
   width: 240px;
   height: 180px;
   border: solid 1px black;
-  background-color: #aacc66;
   margin: 10px auto;
 }
 
