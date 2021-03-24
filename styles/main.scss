@@ -22,12 +22,13 @@ body {
   border: 1px solid black;
   box-shadow: 2px 2px 4px black;
   background-color: lightgray;
+  position: relative;
 }
 
 .header {
   margin-top: 20px;
   text-align: center;
-  font-family: 'Dela Gothic One';
+  font-family: 'Dela Gothic One', cursive;
   color: #4d4787;
 }
 
@@ -42,6 +43,7 @@ h1 {
 .game-container {
   width: 320px;
   margin: 15px auto;
+
   // background-color: lightblue;
 }
 
@@ -181,8 +183,12 @@ h1 {
   justify-content: space-between;
 }
 
-// .d-btn {
-//   width: 40px;
-//   height: 40px;
-//   padding: 0;
-// }
+footer {
+  text-align: center;
+  font-family: 'Dela Gothic One';
+  font-size: 0.6rem;
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  line-height: 1.6;
+}
