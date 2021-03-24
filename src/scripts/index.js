@@ -31,6 +31,10 @@ let isGameOver = true
 document.addEventListener('keyup', handleKeyInput)
 startButton.addEventListener('click', startGame)
 resetButton.addEventListener('click', resetGame)
+document.getElementById('up').addEventListener('click', handleDPad)
+document.getElementById('left').addEventListener('click', handleDPad)
+document.getElementById('right').addEventListener('click', handleDPad)
+document.getElementById('down').addEventListener('click', handleDPad)
 
 function createGrid () {
   // create 300 square for our 20x15 grid
@@ -152,6 +156,27 @@ function handleKeyInput (e) {
     // console.log('left pressed')
     newDirection = -1
   } else if (e.keyCode === 40) {
+    // console.log('down pressed')
+    newDirection = +width
+  }
+
+  changeDirection(newDirection)
+}
+
+function handleDPad (event) {
+  let newDirection
+  const input = event.currentTarget.id
+
+  if (input === 'right') {
+    // console.log('right pressed')
+    newDirection = 1
+  } else if (input === 'up') {
+    // console.log('up pressed')
+    newDirection = -width
+  } else if (input === 'left') {
+    // console.log('left pressed')
+    newDirection = -1
+  } else if (input === 'down') {
     // console.log('down pressed')
     newDirection = +width
   }
