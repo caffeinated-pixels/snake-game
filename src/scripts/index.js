@@ -1,3 +1,5 @@
+// add sounds?
+// disable controls while paused
 // TODO: difficulty levels?
 // TODO: tweak socring system
 
