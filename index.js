@@ -85,28 +85,27 @@ function startGame () {
 }
 
 function moveSnake () {
-  if (
+  if (hasSnakeCollided()) {
+    return gameover()
+  }
+
+  const tail = currentSnake.pop()
+  squares[tail].classList.remove('snake')
+  currentSnake.unshift(currentSnake[0] + direction)
+
+  checkForApple(tail)
+
+  squares[currentSnake[0]].classList.add('snake')
+}
+
+function hasSnakeCollided () {
+  return (
     (currentSnake[0] + width >= width * height && direction === width) || // if snake has hit bottom
     (currentSnake[0] % width === width - 1 && direction === 1) || // if snake has hit right wall
     (currentSnake[0] % width === 0 && direction === -1) || // if snake has hit left wall
     (currentSnake[0] - width < 0 && direction === -width) || // if snake has hit top
     squares[currentSnake[0] + direction].classList.contains('snake')
-  ) {
-    return gameover()
-  }
-
-  // remove last element from our currentSnake array
-  const tail = currentSnake.pop()
-  // remove styling from last element
-  squares[tail].classList.remove('snake')
-  // add square in direction we are heading
-  currentSnake.unshift(currentSnake[0] + direction)
-  // add styling so we can see it
-
-  // deal with snake head gets apple
-  checkForApple(tail)
-
-  squares[currentSnake[0]].classList.add('snake')
+  )
 }
 
 function checkForApple (tail) {
