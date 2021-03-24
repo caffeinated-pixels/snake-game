@@ -31,13 +31,13 @@ let isPaused = true
 let isGameOver = true
 
 // event listeners
-document.addEventListener('keyup', handleKeyInput)
+document.addEventListener('keydown', handleKeyInput)
 startButton.addEventListener('click', startGame)
 resetButton.addEventListener('click', () => resetGame(false))
-document.getElementById('up').addEventListener('click', handleDPad)
-document.getElementById('left').addEventListener('click', handleDPad)
-document.getElementById('right').addEventListener('click', handleDPad)
-document.getElementById('down').addEventListener('click', handleDPad)
+document.getElementById('up').addEventListener('click', handleKeyInput)
+document.getElementById('left').addEventListener('click', handleKeyInput)
+document.getElementById('right').addEventListener('click', handleKeyInput)
+document.getElementById('down').addEventListener('click', handleKeyInput)
 
 function createGrid () {
   // create 300 square for our 20x15 grid
@@ -179,42 +179,24 @@ function setHiscore () {
 }
 
 // TODO: merge handleKeyInput & handleDPad?
-function handleKeyInput (e) {
+function handleKeyInput (event) {
+  console.log(event.type)
+  const input =
+    event.type === 'keydown' ? event.keyCode : event.currentTarget.id
+
   if (isPaused) return
   let newDirection
 
-  if (e.keyCode === 39) {
+  if (input === 39 || input === 'right') {
     // console.log('right pressed')
     newDirection = 1
-  } else if (e.keyCode === 38) {
+  } else if (input === 38 || input === 'up') {
     // console.log('up pressed')
     newDirection = -width
-  } else if (e.keyCode === 37) {
+  } else if (input === 37 || input === 'left') {
     // console.log('left pressed')
     newDirection = -1
-  } else if (e.keyCode === 40) {
-    // console.log('down pressed')
-    newDirection = +width
-  }
-
-  changeDirection(newDirection)
-}
-
-function handleDPad (event) {
-  if (isPaused) return
-  let newDirection
-  const input = event.currentTarget.id
-
-  if (input === 'right') {
-    // console.log('right pressed')
-    newDirection = 1
-  } else if (input === 'up') {
-    // console.log('up pressed')
-    newDirection = -width
-  } else if (input === 'left') {
-    // console.log('left pressed')
-    newDirection = -1
-  } else if (input === 'down') {
+  } else if (input === 40 || input === 'down') {
     // console.log('down pressed')
     newDirection = +width
   }
