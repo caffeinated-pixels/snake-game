@@ -8,7 +8,7 @@ const pauseScreen = document.getElementById('pause-screen')
 const gameoverScreen = document.getElementById('gameover-screen')
 const gameoverScore = document.getElementById('gameover-score')
 
-let audioToUnlock = []
+const audioToUnlock = []
 const gulpSound = new Audio('./media/cartoon-gulp.mp3')
 const splatSound = new Audio('./media/cartoon-splat.mp3')
 audioToUnlock.push(gulpSound)
@@ -24,9 +24,9 @@ function unlockAudioForiOS () {
     })
   }
 
-  audioToUnlock = null
+  // audioToUnlock = null
 
-  // document.removeEventListener('touchstart', audioHackforiOS)
+  document.removeEventListener('touchstart', unlockAudioForiOS)
 }
 
 const squares = []
