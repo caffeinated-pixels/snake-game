@@ -140,8 +140,6 @@ function hasSnakeHitSelf () {
 function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
     squares[currentSnake[0]].classList.remove('apple')
-    // document.getElementById('gulp').play()
-    // gulpSound.src = './media/cartoon-gulp.mp3'
     gulpSound.play()
 
     // grow the snake
@@ -189,8 +187,6 @@ function resetGame (cameFromGameover) {
 }
 
 function gameover () {
-  // document.getElementById('splat').play()
-  // splatSound.src = './media/cartoon-splat.mp3'
   splatSound.play()
   gameoverScore.textContent = score
   gameoverScreen.style.display = 'block'
