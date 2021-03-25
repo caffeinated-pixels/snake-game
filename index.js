@@ -10,11 +10,13 @@ const gameoverScore = document.getElementById('gameover-score')
 const gulpSound = new Audio()
 const splatSound = new Audio()
 
-document.addEventListener('touchstart', audioHackforiOS)
+document.addEventListener('click', audioHackforiOS)
 
 function audioHackforiOS () {
   gulpSound.play()
   splatSound.play()
+
+  document.removeEventListener('click', audioHackforiOS)
 }
 
 const squares = []
