@@ -7,17 +7,31 @@ const startScreen = document.getElementById('start-screen')
 const pauseScreen = document.getElementById('pause-screen')
 const gameoverScreen = document.getElementById('gameover-screen')
 const gameoverScore = document.getElementById('gameover-score')
-const gulpSound = new Audio()
-const splatSound = new Audio()
 
-document.addEventListener('click', audioHackforiOS)
+const audioToUnlock = []
+const gulpSound = new Audio('./media/cartoon-gulp.mp3')
+const splatSound = new Audio('./media/cartoon-splat.mp3')
+audioToUnlock.push(gulpSound)
+audioToUnlock.push(splatSound)
 
-function audioHackforiOS () {
-  gulpSound.play()
-  splatSound.play()
+audioToUnlock.forEach(audio => {
+  audio.play()
+  audio.pause()
+  audio.currentTime = 0
+})
 
-  document.removeEventListener('click', audioHackforiOS)
-}
+// document.addEventListener('touchstart', audioHackforiOS)
+//
+// function audioHackforiOS () {
+//   gulpSound.play()
+//   gulpSound.pause()
+//   gulpSound.currentTime()
+//   splatSound.play()
+//   splatSound.pause()
+//
+//
+//   document.removeEventListener('touchstart', audioHackforiOS)
+// }
 
 const squares = []
 const width = 20
@@ -133,7 +147,7 @@ function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
     squares[currentSnake[0]].classList.remove('apple')
     // document.getElementById('gulp').play()
-    gulpSound.src = './media/cartoon-gulp.mp3'
+    // gulpSound.src = './media/cartoon-gulp.mp3'
     gulpSound.play()
 
     // grow the snake
@@ -182,7 +196,7 @@ function resetGame (cameFromGameover) {
 
 function gameover () {
   // document.getElementById('splat').play()
-  splatSound.src = './media/cartoon-splat.mp3'
+  // splatSound.src = './media/cartoon-splat.mp3'
   splatSound.play()
   gameoverScore.textContent = score
   gameoverScreen.style.display = 'block'
