@@ -1,6 +1,6 @@
 # Nokia-style snake game
 
-This simple, retro-styled snake game is based on the [Scrimba tutorial](https://scrimba.com/learn/snakegame) by Ania Kubrow. It's built entirely with vanilla JavaScript.
+This simple, retro-styled snake game is based on the [Scrimba tutorial](https://scrimba.com/learn/snakegame) by Ania Kubow. It's built entirely with vanilla JavaScript.
 
 I've had a lot of fun adding my own styling and expanding the functionality, such as:
 
