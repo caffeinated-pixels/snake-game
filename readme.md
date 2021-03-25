@@ -10,3 +10,5 @@ I've had a lot of fun adding my own styling and expanding the functionality, suc
 - sound effects
 - start, pause and gameover screens
 - d-pad-style buttons for use on mobile devices
+
+You can [see the game in action here](https://mercboy-snake.netlify.app/).
