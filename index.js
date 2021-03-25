@@ -7,6 +7,19 @@ const startScreen = document.getElementById('start-screen')
 const pauseScreen = document.getElementById('pause-screen')
 const gameoverScreen = document.getElementById('gameover-screen')
 const gameoverScore = document.getElementById('gameover-score')
+const gulpSound = new Audio()
+const splatSound = new Audio()
+
+document.addEventListener('click', audioHackforiOS)
+
+function audioHackforiOS () {
+  gulpSound.play()
+  splatSound.play()
+
+  gulpSound.src = './media/cartoon-gulp.mp3'
+  splatSound.src = './media/cartoon-splat.mp3'
+  document.removeEventListener('click', audioHackforiOS)
+}
 
 const squares = []
 const width = 20
@@ -121,7 +134,8 @@ function hasSnakeHitSelf () {
 function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
     squares[currentSnake[0]].classList.remove('apple')
-    document.getElementById('gulp').play()
+    // document.getElementById('gulp').play()
+    gulpSound.play()
 
     // grow the snake
     squares[tail].classList.add('snake')
@@ -168,7 +182,8 @@ function resetGame (cameFromGameover) {
 }
 
 function gameover () {
-  document.getElementById('splat').play()
+  // document.getElementById('splat').play()
+  splatSound.play()
   gameoverScore.textContent = score
   gameoverScreen.style.display = 'block'
   isGameOver = true
