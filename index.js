@@ -8,27 +8,6 @@ const pauseScreen = document.getElementById('pause-screen')
 const gameoverScreen = document.getElementById('gameover-screen')
 const gameoverScore = document.getElementById('gameover-score')
 
-let audioToUnlock = []
-const gulpSound = new Audio('./media/cartoon-gulp.mp3')
-const splatSound = new Audio('./media/cartoon-splat.mp3')
-audioToUnlock.push(gulpSound)
-audioToUnlock.push(splatSound)
-document.addEventListener('touchstart', unlockAudioForiOS)
-
-function unlockAudioForiOS () {
-  if (audioToUnlock) {
-    audioToUnlock.forEach(audio => {
-      audio.play()
-      audio.pause()
-      audio.currentTime = 0
-    })
-  }
-
-  audioToUnlock = null
-
-  // document.removeEventListener('touchstart', unlockAudioForiOS)
-}
-
 const squares = []
 const width = 20
 const height = 15
@@ -57,6 +36,25 @@ document
   .querySelectorAll('.d-btn')
   .forEach(item => item.addEventListener('click', handleKeyInput))
 
+// for getting audio to play on iOS
+const audioToUnlock = []
+const gulpSound = new Audio('./media/cartoon-gulp.mp3')
+const splatSound = new Audio('./media/cartoon-splat.mp3')
+audioToUnlock.push(gulpSound)
+audioToUnlock.push(splatSound)
+document.addEventListener('touchstart', unlockAudioForiOS)
+
+function unlockAudioForiOS () {
+  audioToUnlock.forEach(audio => {
+    audio.play()
+    audio.pause()
+    audio.currentTime = 0
+  })
+
+  document.removeEventListener('touchstart', unlockAudioForiOS)
+}
+
+// game functions
 function createGrid () {
   // create 300 square for our 20x15 grid
   for (let i = 0; i < width * height; i++) {
