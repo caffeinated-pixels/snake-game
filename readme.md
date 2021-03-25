@@ -5,6 +5,7 @@ This simple, retro-styled snake game is based on the [Scrimba tutorial](https://
 I've had a lot of fun adding my own styling and expanding the functionality, such as:
 
 - persistent hiscore (using the web storage API)
+- expanded grid to 20x15
 - separate play & reset buttons
 - pause function
 - sound effects
