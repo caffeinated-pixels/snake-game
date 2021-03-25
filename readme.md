@@ -17,9 +17,9 @@ You can [see the game in action here](https://mercboy-snake.netlify.app/).
 
 ## Notes
 
-# Audio on iOS
+### Audio on iOS
 
-So, iOS will not play any HTML5 audio that is not directly initiated by the user. I guess this is to prevent annoying autoplaying music, etc but it's very frustrating when you're trying to implement game audio!
+So, iOS disables the playback of any HTML5 audio that is not directly initiated by the user. I guess this is to prevent annoying autoplaying music, etc, but it's very frustrating when you're trying to implement game audio!
 
 I found a hack to workaround this issue. Basically, you can "unlock" the audio objects by setting up an event listener that plays all the sound the first time the user touches the screen (`touchscreen` event). This is what I implemented:
 
