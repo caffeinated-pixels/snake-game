@@ -8,30 +8,26 @@ const pauseScreen = document.getElementById('pause-screen')
 const gameoverScreen = document.getElementById('gameover-screen')
 const gameoverScore = document.getElementById('gameover-score')
 
-const audioToUnlock = []
+let audioToUnlock = []
 const gulpSound = new Audio('./media/cartoon-gulp.mp3')
 const splatSound = new Audio('./media/cartoon-splat.mp3')
 audioToUnlock.push(gulpSound)
 audioToUnlock.push(splatSound)
+document.addEventListener('touchstart', unlockAudioForiOS)
 
-audioToUnlock.forEach(audio => {
-  audio.play()
-  audio.pause()
-  audio.currentTime = 0
-})
+function unlockAudioForiOS () {
+  if (audioToUnlock) {
+    audioToUnlock.forEach(audio => {
+      audio.play()
+      audio.pause()
+      audio.currentTime = 0
+    })
+  }
 
-// document.addEventListener('touchstart', audioHackforiOS)
-//
-// function audioHackforiOS () {
-//   gulpSound.play()
-//   gulpSound.pause()
-//   gulpSound.currentTime()
-//   splatSound.play()
-//   splatSound.pause()
-//
-//
-//   document.removeEventListener('touchstart', audioHackforiOS)
-// }
+  audioToUnlock = null
+
+  // document.removeEventListener('touchstart', audioHackforiOS)
+}
 
 const squares = []
 const width = 20
