@@ -10,15 +10,11 @@ const gameoverScore = document.getElementById('gameover-score')
 const gulpSound = new Audio()
 const splatSound = new Audio()
 
-document.addEventListener('click', audioHackforiOS)
+document.addEventListener('touchstart', audioHackforiOS)
 
 function audioHackforiOS () {
   gulpSound.play()
   splatSound.play()
-
-  gulpSound.src = './media/cartoon-gulp.mp3'
-  splatSound.src = './media/cartoon-splat.mp3'
-  document.removeEventListener('click', audioHackforiOS)
 }
 
 const squares = []
@@ -135,6 +131,7 @@ function checkForApple (tail) {
   if (squares[currentSnake[0]].classList.contains('apple')) {
     squares[currentSnake[0]].classList.remove('apple')
     // document.getElementById('gulp').play()
+    gulpSound.src = './media/cartoon-gulp.mp3'
     gulpSound.play()
 
     // grow the snake
@@ -183,6 +180,7 @@ function resetGame (cameFromGameover) {
 
 function gameover () {
   // document.getElementById('splat').play()
+  splatSound.src = './media/cartoon-splat.mp3'
   splatSound.play()
   gameoverScore.textContent = score
   gameoverScreen.style.display = 'block'
