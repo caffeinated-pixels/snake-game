@@ -206,17 +206,16 @@ function setHiscore () {
 
 function handleKeyInput (event) {
   if (isPaused) return
-  const input =
-    event.type === 'keydown' ? event.keyCode : event.currentTarget.id
+  const input = event.type === 'keydown' ? event.key : event.currentTarget.id
   let newDirection
 
-  if (input === 39 || input === 'right') {
+  if (input === 'ArrowRight' || input === 'right') {
     newDirection = 1
-  } else if (input === 38 || input === 'up') {
+  } else if (input === 'ArrowUp' || input === 'up') {
     newDirection = -width
-  } else if (input === 37 || input === 'left') {
+  } else if (input === 'ArrowLeft' || input === 'left') {
     newDirection = -1
-  } else if (input === 40 || input === 'down') {
+  } else if (input === 'ArrowDown' || input === 'down') {
     newDirection = +width
   }
 
