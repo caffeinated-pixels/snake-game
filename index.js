@@ -209,14 +209,26 @@ function handleKeyInput (event) {
   const input = event.type === 'keydown' ? event.key : event.currentTarget.id
   let newDirection
 
-  if (input === 'ArrowRight' || input === 'right') {
-    newDirection = 1
-  } else if (input === 'ArrowUp' || input === 'up') {
-    newDirection = -width
-  } else if (input === 'ArrowLeft' || input === 'left') {
-    newDirection = -1
-  } else if (input === 'ArrowDown' || input === 'down') {
-    newDirection = +width
+  switch (input) {
+    case 'ArrowRight':
+    case 'right':
+      newDirection = 1
+      break
+
+    case 'ArrowUp':
+    case 'up':
+      newDirection = -width
+      break
+
+    case 'ArrowLeft':
+    case 'left':
+      newDirection = -1
+      break
+
+    case 'ArrowDown':
+    case 'down':
+      newDirection = +width
+      break
   }
 
   changeDirection(newDirection)
