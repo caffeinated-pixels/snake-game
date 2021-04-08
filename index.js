@@ -199,7 +199,6 @@ function setHiscore () {
   if (score > hiscore) {
     hiscore = score
     hiscoreDisplay.textContent = hiscore
-    localStorage.setItem('snakeHiscore', JSON.stringify({ hiscore: hiscore }))
     localStorage.setItem('snakeHiscore', hiscore)
   }
 }
