@@ -211,21 +211,25 @@ function handleKeyInput (event) {
   switch (input) {
     case 'ArrowRight':
     case 'right':
+    case 'd':
       newDirection = 1
       break
 
     case 'ArrowUp':
     case 'up':
+    case 'w':
       newDirection = -width
       break
 
     case 'ArrowLeft':
     case 'left':
+    case 'a':
       newDirection = -1
       break
 
     case 'ArrowDown':
     case 'down':
+    case 's':
       newDirection = +width
       break
   }
