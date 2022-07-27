@@ -151,6 +151,7 @@ h1 {
 .d-btn {
   border-radius: 5%;
   background-color: #313130;
+  touch-action: manipulation;
 }
 
 .button:hover,
